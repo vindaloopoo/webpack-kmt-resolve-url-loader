@@ -18,25 +18,29 @@ module.exports = function applyLoader(content, map) {
     }
     const cb = this.async();
 
-    // first remove any virtual cache busters
     content = content
 
-    // replace /download with abs /download url
+        // replace /download with abs /download
         .replace(/\/download/gim, `${baseUrl}/download`)
-        // replace /img with abs /img url
+
+        // replace /<known> with abs /<known>
         .replace(/\/.*?\/layout\/((img|css)\/)/gim, `${baseUrl}/$1`)
 
-        // remove image.kmt123.png like cachebusters
+        // remove any possible cache busters
+
+        // clean up any image.kmt123.png
         .replace(/\.kmt[\w]+\./gim, ".")
 
-        // clean up any ?r=123 cache busters
+        // clean up any ?r=123
         .replace(/\?r=[\d]+/gim, "");
 
     // now try local vs base files
     // i.e.
     //      custom/X/view/layout/img/test.png
-    // is probably
+    // (if not exists) would, according to the framework, be
     //      public_html/img/test.png
+    //
+    // This mirrors the framework expectation
     //
     const matches = content.match(new RegExp(`${projectRoot}[^'")]+`, "mig"));
 
