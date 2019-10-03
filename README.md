@@ -4,13 +4,19 @@ Using `webpack-dev-server` with KMT you need to fix some urls else they will not
 
 hence this... 
 
-> NOTE: This is only needed for development!
+> IMPORTANT: This is only needed for development!
 
-> NOTE: This loader will not (yet) work for encore dev-server as it works in the reverse... this would require another plugin that redirects back to the referrer...? In any case worthy of an issue, to be resolved ;-)
+> WARNING: This loader will not (yet) work for encore dev-server as 
+> it works in the reverse... this would require something
+> that redirects back to the referrer...? In any case worthy of an issue, to be resolved ;-)
 
 ## Usage
 
+Add the loader
+
     yarn add @kingsquare/webpack-kmt-resolve-url-loader
+
+Until then just add the repo ;-)
 
 Then after the `resolve-url-loader` add the `kmt-resolve-url-loader`
 
