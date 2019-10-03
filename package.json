@@ -1,0 +1,24 @@
+{
+  "name": "@kingsquare/webpack-kmt-resolve-url-loader",
+  "version": "0.0.0-alpha1",
+  "description": "A Webpack plugin for resolving KMT urls",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vindaloopoo/webpack-kmt-resolve-url-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vindaloopoo/webpack-kmt-resolve-url-loader/issues"
+  },
+  "author": "Kingsquare BV <source@kingsquare.nl>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "peerDependencies": {
+    "webpack": ">=3"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.0"
+  }
+}
