@@ -16,8 +16,6 @@ Add the loader
 
     yarn add @kingsquare/webpack-kmt-resolve-url-loader
 
-Until then just add the repo ;-)
-
 Then after the `resolve-url-loader` add the `kmt-resolve-url-loader`
 
       {
