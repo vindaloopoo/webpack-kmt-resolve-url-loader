@@ -1,6 +1,6 @@
 {
   "name": "@kingsquare/webpack-kmt-resolve-url-loader",
-  "version": "0.0.0-alpha1",
+  "version": "0.0.0-alpha2",
   "description": "A Webpack plugin for resolving KMT urls",
   "main": "index.js",
   "repository": {
@@ -16,9 +16,21 @@
     "node": ">=8"
   },
   "peerDependencies": {
+    "loader-utils": "^1.2.3",
+    "schema-utils": "^2.4.1",
     "webpack": ">=3"
   },
   "dependencies": {
     "bluebird": "^3.7.0"
+  },
+  "devDependencies": {
+    "webpack": ">=3",
+    "eslint-config-kingsquare": "https://github.com/kingsquare/eslint-config-kingsquare.git#2464819b1f0090359da5570bcf2170a3eb3fadbd"
+  },
+  "eslintConfig": {
+    "extends": "kingsquare"
+  },
+  "prettier": {
+    "printWidth": 120
   }
 }
