@@ -21,7 +21,10 @@ Then after the `resolve-url-loader` add the `kmt-resolve-url-loader`
       {
         loader: "kmt-resolve-url-loader",
         options: {
+          // where to rewrite kmt urls to
+          baseUrl: "http://kmt-instance-uri",
           sourceMap: true,
+          // specify the location to the layout directory
           root: path.resolve(__dirname, "../view/layout")
         }
       }
