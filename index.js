@@ -1,6 +1,8 @@
 const path = require("path");
 const Promise = require("bluebird");
 const fs = Promise.promisifyAll(require("fs"));
+const { getOptions } = require("loader-utils");
+const validateOptions = require("schema-utils");
 
 const projectRoot = path.resolve(__dirname, "../..");
 const projectPublicRoot = path.resolve(projectRoot, "view/layout");
@@ -9,14 +11,25 @@ const kmtPublicRoot = path.resolve(kmtRoot, "public_html");
 
 const replace = p => p.replace(projectPublicRoot, kmtPublicRoot);
 
-// TODO fix this to the current webpack-dev-server url
-const baseUrl = "__BASE_URL__";
+const optionsSchema = {
+  type: "object",
+  properties: {
+    baseUrl: {
+      type: "string",
+      format: "uri"
+    }
+  },
+  required: ["baseUrl"]
+};
 
 module.exports = function applyLoader(content, map) {
-    if (this.cacheable) {
-        this.cacheable();
-    }
-    const cb = this.async();
+  const options = getOptions(this);
+  validateOptions(optionsSchema, options, "ResolveKmtUrlLoader");
+
+  if (this.cacheable) {
+    this.cacheable();
+  }
+  const cb = this.async();
 
     content = content
 
